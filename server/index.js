@@ -23,7 +23,11 @@ app.use(bodyParser.json())
 
 massive(CONNECTION_STRING).then(db => {
     app.set('db', db)
-    app.listen(SERVER_PORT, () => console.log(`working on port ${SERVER_PORT}`))
+    console.log('connected to db')
 })
 
-app.post('/', ctrl.auth)
+app.post('/auth/register', ctrl.register)
+
+app.post('/auth/login', ctrl.login)
+
+app.listen(SERVER_PORT, () => console.log(`working on port ${SERVER_PORT}`))
