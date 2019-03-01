@@ -43,6 +43,11 @@ module.exports = {
                 }
 
     },
+    getAllPosts: async (req, res) => {
+        const db = req.app.get('db')
+        let posts = await db.getAllPosts()
+        
+    }
 
 
 }
